@@ -1,0 +1,35 @@
+.header{
+    width: calc(100% - 4rem);
+    background-color: #f8f9fa;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.header-nav-btn {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.header-nav-btn:hover {
+    background-color: #e2e6ea;
+}
+
+.header-nav {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    width: 100%;
+
+    text-align: center;
+}

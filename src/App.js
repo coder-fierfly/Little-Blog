@@ -11,22 +11,25 @@ import './App.css';
 import Header from "./component/Header";
 
 const App = observer(() => {
-    {console.log(!authStore.isAuthenticated)}
+    {console.log(authStore.isAuthenticated)}
     return (
         <div className="App">
-
             <Router>
                 {authStore.isAuthenticated && <Header />}
                 <div>
                     <Routes>
-                        {!authStore.isAuthenticated ?
-                            <Route path="*" element={<Navigate to="/authorization" />} /> :
-                            <Route path="*" element={<Navigate to="/" />} /> }
-                        <Route path="/authorization" element={<Login/>}/>
-                        <Route path="/" element={<ArticleList/>}/>
-                        <Route path="/article/:id" element={<Article/>}/>
-                        <Route path="/new" element={<ArticleForm/>}/>
-                        <Route path="/edit/:id" element={<ArticleForm/>}/>
+                        <Route path="/authorization" element={<Login />} />
+
+                        {authStore.isAuthenticated ? (
+                            <>
+                                <Route path="/" element={<ArticleList />} />
+                                <Route path="/article/:id" element={<Article />} />
+                                <Route path="/new" element={<ArticleForm />} />
+                                <Route path="/edit/:id" element={<ArticleForm />} />
+                            </>
+                        ) : (
+                            <Route path="*" element={<Navigate to="/authorization" />} />
+                        )}
                     </Routes>
                 </div>
             </Router>

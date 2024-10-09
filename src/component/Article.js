@@ -13,6 +13,10 @@ const Article = observer(() => {
         <div>
             <h2>{article.title}</h2>
             <p>{article.content}</p>
+            <p>Likes: {article.likes}</p>
+            <button onClick={() => articleStore.increaseLikes(parseInt(id))}>
+                👍 Лайк
+            </button>
             <Link to={`/edit/${article.id}`}>Изменить</Link>
         </div>
     );
