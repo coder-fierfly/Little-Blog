@@ -10,7 +10,6 @@ class AuthStore {
     }
 
     authenticate(login, password) {
-        console.log(login, password)
         this.login = login;
         this.password = password;
         this.isAuthenticated = true;

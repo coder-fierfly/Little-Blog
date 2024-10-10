@@ -11,7 +11,6 @@ import './App.css';
 import Header from "./component/Header";
 
 const App = observer(() => {
-    {console.log(authStore.isAuthenticated)}
     return (
         <div className="App">
             <Router>
