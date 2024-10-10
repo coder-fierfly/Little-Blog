@@ -1,5 +1,5 @@
-.header{
-    width: calc(100% - 4rem);
+.header {
+    width: 100%;
     background-color: #f8f9fa;
 }
 
@@ -19,6 +19,9 @@
     cursor: pointer;
     text-align: center;
     padding: 0.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: normal;
 }
 
 .header-nav-btn:hover {
@@ -28,8 +31,4 @@
 .header-nav {
     text-decoration: none;
     color: black;
-    display: inline-block;
-    width: 100%;
-
-    text-align: center;
 }

@@ -13,12 +13,13 @@ const Header = () => {
     return (
         <header className='header'>
             <nav className="header-wrapper">
-                <button className="header-nav-btn"> <Link className="header-nav" to="/">Статьи</Link></button>
-                <button className="header-nav-btn"><Link className="header-nav" to="/new">Создать новую статью</Link></button>
-                <button className="header-nav-btn" onClick={handleLogout}>Logout</button>
+                <Link className=" header-nav-btn header-nav" to="/">Статьи</Link>
+                <Link className=" header-nav-btn header-nav" to="/new">Создать новую статью</Link>
+                <button className="header-nav-btn" onClick={handleLogout}>Выйти</button>
             </nav>
         </header>
     );
 };
 
 export default Header;
+

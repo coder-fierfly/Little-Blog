@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { observer } from 'mobx-react';
-import { articleStore } from '../store/articleStore';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import {observer} from 'mobx-react';
+import {articleStore} from '../store/articleStore';
+import {useParams, useNavigate} from 'react-router-dom';
+import '../style/ArticleForm.css';
+import '../App.css'
 
-const ArticleForm = observer(() => {
-    const { id } = useParams();
+const ArticleChanging = observer(() => {
+    const {id} = useParams();
     const navigate = useNavigate();
     const existingArticle = articleStore.articles.find(a => a.id === parseInt(id));
 
@@ -13,6 +15,11 @@ const ArticleForm = observer(() => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!title.trim() || !content.trim()) {
+            alert('Пожалуйста, заполните заголовок и содержание статьи.');
+            return;
+        }
+
         if (id) {
             articleStore.updateArticle(parseInt(id), title, content);
         } else {
@@ -22,24 +29,25 @@ const ArticleForm = observer(() => {
     };
 
     return (
-        <div>
+        <div className="article-wrapper-form">
             <h2>{id ? 'Редактировать статью' : 'Создать статью'}</h2>
-            <form onSubmit={handleSubmit}>
+            <form className='input-wrap' onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Заголовок"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
+                    maxLength="50"
                 />
                 <textarea
                     placeholder="Содержание"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 />
-                <button type="submit">{id ? 'Обновление' : 'Создать'}</button>
+                <button className='btn' type="submit">{id ? 'Обновление' : 'Создать'}</button>
             </form>
         </div>
     );
 });
 
-export default ArticleForm;
+export default ArticleChanging;
